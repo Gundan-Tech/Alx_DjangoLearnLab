@@ -11,9 +11,8 @@ def display_current_datetime ():
 def calculate_future_date ():
     current = display_current_datetime()
     days = int(input ('Enter the number of days to add to the current date: '))
-    future =  current + timedelta(days= days)
-    future_date = future.strftime("%Y-%m-%d")
-    print("Future date: ", future_date)
+    future_date = current + timedelta(days= days)
+    print("Future date: ", future_date.strftime("%Y-%m-%d"))
     return future_date
 
 
