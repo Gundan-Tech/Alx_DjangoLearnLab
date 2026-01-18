@@ -1,7 +1,8 @@
 from relationship_app.models import Author, Book, Library, Librarian
 
 # Query all books by a specific author
-author = Author.objects.get(name="George Orwell")
+author_name = "George Orwell"
+author = Author.objects.get(name=author_name)
 books = Book.objects.filter(author=author)
 print(books)
 
