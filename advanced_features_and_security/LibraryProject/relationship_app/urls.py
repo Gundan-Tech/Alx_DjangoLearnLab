@@ -3,6 +3,8 @@ from .views import list_books
 from .views import LibraryDetailView
 from .views import register
 from .views import UserLoginView, UserLogoutView
+# from django.contrib.auth.views import LoginView, LogoutView
+# from . import views
 
 
 
