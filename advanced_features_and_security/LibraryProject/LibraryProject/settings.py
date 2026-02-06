@@ -126,3 +126,35 @@ AUTH_USER_MODEL = "bookshelf.CustomUser"
 
 LOGIN_REDIRECT_URL = '/'  # Redirect to home or book list after login
 LOGOUT_REDIRECT_URL = 'login'
+
+# SECURITY WARNING: keep the secret key used in production secret!
+# DEBUG = False  # Set to False as per task requirements for production
+
+# Browser-side protections
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Cookie Security (Enforce HTTPS)
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+# SSL Redirect (Best practice when Cookies are Secure)
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Additional Security Headers
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Content Security Policy (Example using django-csp middleware)
+# Requires: pip install django-csp
+# MIDDLEWARE += ['csp.middleware.CSPMiddleware']
+
+# Basic CSP Policy
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", "https://fonts.googleapis.com")
+CSP_SCRIPT_SRC = ("'self'",)
