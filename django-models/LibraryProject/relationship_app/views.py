@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView
 from .models import Book
 from .models import Library
-from django.contrib.auth.decorators import user_passes_test, permission_required
+from django.contrib.auth.decorators import permission_required, user_passes_test
 
 def list_books(request):
     books = Book.objects.all()
