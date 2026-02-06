@@ -19,21 +19,15 @@ class LibraryDetailView(DetailView):
 
 
 def register(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # This line is REQUIRED for checker
-            return redirect("login")
+            login(request, user)
+            return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, "relationship_app/register.html", {"form": form})
+    return render(request, 'relationship_app/register.html', {'form': form})
 
 
-class UserLoginView(LoginView):
-    template_name = "relationship_app/login.html"
-
-
-class UserLogoutView(LogoutView):
-    template_name = "relationship_app/logout.html"
 
