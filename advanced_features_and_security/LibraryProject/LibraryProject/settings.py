@@ -158,3 +158,37 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_STYLE_SRC = ("'self'", "https://fonts.googleapis.com")
 CSP_SCRIPT_SRC = ("'self'",)
+
+# --- HTTPS and SSL/TLS Settings ---
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS) - 1 year in seconds
+# This tells the browser to only connect via HTTPS for the next year
+SECURE_HSTS_SECONDS = 31536000 
+
+# Apply HSTS policy to all subdomains
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# Allow the site to be submitted to the browser HSTS preload list
+SECURE_HSTS_PRELOAD = True
+
+# --- Cookie Security ---
+
+# Ensure session cookies are only sent over HTTPS connections
+SESSION_COOKIE_SECURE = True
+
+# Ensure CSRF cookies are only sent over HTTPS connections
+CSRF_COOKIE_SECURE = True
+
+# --- Secure Headers ---
+
+# Prevent the site from being loaded in an iframe to protect against Clickjacking
+X_FRAME_OPTIONS = 'DENY'
+
+# Disable the browser's ability to guess the MIME type (prevents XSS via user uploads)
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Enable the browser's XSS filtering for older browsers
+SECURE_BROWSER_XSS_FILTER = True
