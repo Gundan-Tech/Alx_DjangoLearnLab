@@ -30,10 +30,10 @@ def register(request):
     return render(request, "relationship_app/register.html", {"form": form})
 
 
-class UserLoginView(LoginView):
-    template_name = "relationship_app/login.html"
+# class UserLoginView(LoginView):
+#     template_name = "relationship_app/login.html"
 
 
-class UserLogoutView(LogoutView):
-    template_name = "relationship_app/logout.html"
+# class UserLogoutView(LogoutView):
+#     template_name = "relationship_app/logout.html"
 
