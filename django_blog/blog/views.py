@@ -102,6 +102,11 @@ class PostListView(ListView):
 # 2. DetailView - Displays a single post
 class PostDetailView(DetailView):
     model = Post
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()  # Add an empty form to the context
+        return context
 
 # 3. CreateView - Authenticated users can create posts
 class PostCreateView(LoginRequiredMixin, CreateView):
