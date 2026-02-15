@@ -7,6 +7,12 @@
     <hr>
     {% for post in posts %}
         <div class="post-item">
+            <p>
+                Tags:
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'posts_by_tag' tag.slug %}" class="badge">{{ tag.name }}</a>
+                {% endfor %}
+            </p>
             <h3>
                 <a href="{% url 'post-detail' pk=post.pk %}">{{ post.title }}</a>
             </h3>
